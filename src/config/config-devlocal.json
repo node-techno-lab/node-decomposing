@@ -1,0 +1,14 @@
+{
+  "isProduction": false,
+  "logging": {
+    "shortDescription": true,
+    "transports": [
+      {
+        "enabled": true,
+        "transport": "Console",
+        "minLevel": "trace"
+      }
+    ]
+  },
+  "environment": "dev"
+}
