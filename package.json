@@ -1,0 +1,96 @@
+{
+  "name": "node-decomposing",
+  "description": "NodeJs cluster decomposing...",
+  "version": "1.0.0",
+  "author": "Barbeau",
+  "license": "ISC",
+  "main": "src/",
+  "keywords": [
+    "typedi",
+    "typescript",
+    "node",
+    "cluster"
+  ],
+  "readmeFilename": "README.md",
+  "contributors": [],
+  "scripts": {
+    "compile": "tsc -p . --diagnostics",
+    "compile:watch": "tsc -w -p .",
+    "tslint": "tslint --project tslint.json --fix",
+    "tslint:nofix": "tslint --project tslint.json",
+    "test": "jest --verbose --forceExit --detectOpenHandles",
+    "test:coverage": "jest --coverage --forceExit --detectOpenHandles",
+    "start": "npm run start:local",
+    "start:local": "npm run compile && node ./dist/main.js --env devlocal",
+    "debug": "node %NODE_DEBUG_OPTION% ./dist/main.js ",
+    "build": "gulp clean:dist && npm run compile && gulp copy",
+    "build:start": "npm run build && npm run start",
+    "gulp": "gulp",
+    "start:watch": "ts-node-dev src/main.ts"
+  },
+  "dependencies": {
+    "circular-json": "^0.5.9",
+    "es6-promisify": "^6.0.1",
+    "lodash": "^4.17.11",
+    "moment": "^2.22.2",
+    "moment-timezone": "^0.5.23",
+    "reflect-metadata": "^0.1.12",
+    "rxjs": "^6.3.3",
+    "save": "^2.3.3",
+    "typedi": "^0.8.0",
+    "winston": "^3.1.0",
+    "winston-daily-rotate-file": "^3.5.1"
+  },
+  "devDependencies": {
+    "@types/circular-json": "^0.4.0",
+    "@types/jest": "^23.3.9",
+    "@types/lodash": "^4.14.118",
+    "@types/minimist": "^1.2.0",
+    "@types/moment": "^2.13.0",
+    "@types/node": "^10.12.9",
+    "@types/reflect-metadata": "^0.1.0",
+    "@types/winston": "^2.4.4",
+    "concurrently": "^4.0.1",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "jest": "^23.6.0",
+    "jest-cli": "^23.6.0",
+    "jest-create-mock-instance": "^1.1.0",
+    "minimist": "^1.2.0",
+    "nodemon": "^1.18.6",
+    "run-sequence": "^2.2.1",
+    "ts-jest": "^23.10.4",
+    "ts-node": "^7.0.1",
+    "ts-tslint-formatter": "^0.1.0",
+    "tslint": "^5.11.0",
+    "tslint-loader": "^3.5.4",
+    "typescript": "^3.1.6"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testEnvironment": "node",
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))(\\.it)?\\.(jsx?|tsx?)$",
+    "testPathIgnorePatterns": [
+      "/dist",
+      "/lib",
+      "/coverage"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "collectCoverageFrom": [
+      "**/*.{ts}",
+      "!**/node_modules/**",
+      "!**/lib/**",
+      "!**/coverage/**",
+      "!gulpfile.js"
+    ]
+  }
+}
